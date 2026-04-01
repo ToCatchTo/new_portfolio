@@ -6,7 +6,7 @@ import Experience from './components/experience';
 import Footer from './components/footer';
 import Contact from './components/contact';
 import Projects from './components/projects';
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/react";
 
 const theme = createTheme({
   typography: {

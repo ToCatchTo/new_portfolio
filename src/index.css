@@ -1,0 +1,27 @@
+html {
+    background-color: #0A0A0A;
+}
+
+/* Celá stránka (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0A; /* barva pozadí tvého webu */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #EC5B13; /* barva tvého colors.border */
+  border: 2px solid #0A0A0A; /* vytvoří odsazení táhla od okrajů */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #EC5B13; /* barva tvého colors.primary */
+}
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #EC5B13 #0A0A0A;
+}

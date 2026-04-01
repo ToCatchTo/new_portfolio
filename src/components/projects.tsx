@@ -119,7 +119,7 @@ const ProjectsSection = () => {
                   <Box component="img" src={project.image} alt={project.title} sx={{ width: { md: '80%', xs: '100%' }, height: 'auto', borderRadius: '4px' }} />
                 </Box>
                 <Box sx={{ flex: 1 }}>
-                  <Typography variant="h3" sx={{ fontWeight: 'bold', color: colors.white, mb: '24px', fontSize: { lg: '48px', md: '44px', sm: '40px', xs: '36px' } }}>{project.title}</Typography>
+                  <Typography variant="h3" sx={{ fontWeight: 'bold', color: colors.white, mb: '24px', fontSize: { lg: '44px', md: '44px', sm: '40px', xs: '36px' } }}>{project.title}</Typography>
                   <Box sx={{ display: 'flex', gap: '16px', mb: { sm: '32px', xs: '20px' } }}>
                     {project.icons.map((icon, i) => (
                       <Box component="img" key={i} src={icon} sx={{ width: '32px', height: '32px', objectFit: 'contain' }} />

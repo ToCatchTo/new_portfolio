@@ -20,10 +20,10 @@ const HeroSection = () => {
 						{t('hero_desc_2')}
 					</Typography>
 					<Box sx={{ display: 'flex', gap: 2, mt: { md: '50px', xs: '30px' } }}>
-						<Button variant="contained" disableRipple sx={{ bgcolor: colors.primary, color: colors.white, borderRadius: 0, px: { md: 4, xs: 3 }, py: { md: 1.5, xs: 1.2 }, fontWeight: 'bold', fontSize: { md: '16px', sm: '14px', xs: '12px' }, '&:hover': { bgcolor: colors.primaryHover } }}>
+						<Button href='#contact' variant="contained" disableRipple sx={{ bgcolor: colors.primary, color: colors.white, borderRadius: 0, px: { md: 4, xs: 3 }, py: { md: 1.5, xs: 1.2 }, fontWeight: 'bold', fontSize: { md: '16px', sm: '14px', xs: '12px' }, '&:hover': { bgcolor: colors.primaryHover } }}>
 							{t('hero_contact_btn')}
 						</Button>
-						<Button variant="outlined" disableRipple sx={{ borderColor: colors.border, color: colors.textHightlight, borderRadius: 0, px: { md: 4, xs: 3 }, py: { md: 1.5, xs: 1.2 }, fontWeight: 'bold', fontSize: { md: '16px', sm: '14px', xs: '12px' }, '&:hover': { borderColor: colors.primary, bgcolor: 'transparent' } }}>
+						<Button href='#projects' variant="outlined" disableRipple sx={{ borderColor: colors.border, color: colors.textHightlight, borderRadius: 0, px: { md: 4, xs: 3 }, py: { md: 1.5, xs: 1.2 }, fontWeight: 'bold', fontSize: { md: '16px', sm: '14px', xs: '12px' }, '&:hover': { borderColor: colors.primary, bgcolor: 'transparent' } }}>
 							{t('hero_work_btn')}
 						</Button>
 					</Box>

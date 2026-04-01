@@ -95,7 +95,7 @@ const resources = {
       "about_overline": "GETTING_TO_KNOW_ME",
       "about_title": "ABOUT ME",
       "about_description": "I am a frontend developer specializing in building web applications using modern technologies. Over the past few years, I have worked on numerous web projects. Currently, I am studying at the University of Hradec Králové, where I continue to focus on web development. Take a look at my work and if you like it, feel free to contact me!",
-      "experience_overline": "MASTERED_TECHNOLOGIES",
+      "experience_overline": "KNOWN_TECHNOLOGIES",
       "experience_title": "EXPERIENCE",
       "exp_col_languages": "PROGRAMMING_LANGUAGES",
       "exp_col_tech": "TECHNOLOGIES",

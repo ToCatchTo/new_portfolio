@@ -26,7 +26,7 @@ const TechnologiesSmall = () => {
         ))}
         <Typography sx={{ color: colors.text, fontSize: { lg: '20px', md: '18px' } }}>{t('tech_small_continue_text')}</Typography>
       </Stack>
-      <Button variant="contained" disableRipple sx={{ bgcolor: colors.primary, borderRadius: 0, px: { md: 4, xs: 3 }, py: { md: 1.5, xs: 1.2 }, fontSize: { md: '16px', sm: '14px', xs: '12px' }, width: 'fit-content', '&:hover': { bgcolor: colors.primaryHover } }}>
+      <Button href='#experience' variant="contained" disableRipple sx={{ bgcolor: colors.primary, borderRadius: 0, px: { md: 4, xs: 3 }, py: { md: 1.5, xs: 1.2 }, fontSize: { md: '16px', sm: '14px', xs: '12px' }, width: 'fit-content', '&:hover': { bgcolor: colors.primaryHover } }}>
         {t('tech_small_button')}
       </Button>
     </Box>

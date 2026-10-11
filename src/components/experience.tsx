@@ -1,5 +1,6 @@
-import { Box, Typography } from '@mui/material';
-import { colors } from '../utils/globalVariables';
+import { Box } from '@mui/material';
+import { colors, sectionSpacing } from '../utils/globalVariables';
+import SectionHeading from './sectionHeading';
 import ExperienceColumn from './experienceColumn';
 import { useTranslation } from 'react-i18next';
 
@@ -39,17 +40,9 @@ const Experience = () => {
   const { t } = useTranslation();
 
   return (
-    <Box id="experience" component="section" sx={{ border: `1px solid ${colors.border}`, mt: { md: '150px', sm: '100px', xs: '80px' } }}>
-      <Box sx={{ p: { md: '50px', sm: '25px', xs: '15px' }, borderBottom: `1px solid ${colors.border}` }}>
-        <Typography variant="overline" sx={{ color: colors.primary, display: 'block', mb: '8px', fontSize: '12px', letterSpacing: '1px' }}>
-          {'>'} {t('experience_overline')}
-        </Typography>
-        <Typography variant="h2" sx={{ fontWeight: 800, color: colors.white, fontSize: { lg: '64px', md: '54px', sm: '48px', xs: '44px' }, textTransform: 'uppercase', m: 0 }}>
-          {t('experience_title')}
-        </Typography>
-      </Box>
+    <Box id="experience" component="section" sx={{ border: `1px solid ${colors.border}`, mt: sectionSpacing.mt }}>
+      <SectionHeading overline={t('experience_overline')} title={t('experience_title')} sx={{ p: sectionSpacing.p, borderBottom: `1px solid ${colors.border}` }} />
       <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' } }}>
-        {/* Klíče pro titulky sloupců */}
         <ExperienceColumn title={t('exp_col_languages')} items={programmingLanguages} hasBorder={true} />
         <ExperienceColumn title={t('exp_col_tech')} items={technologies} hasBorder={true} />
         <ExperienceColumn title={t('exp_col_tools')} items={tools} hasBorder={false} />

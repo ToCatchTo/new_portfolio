@@ -3,7 +3,7 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 const resources = {
-  cz: {
+  cs: {
     translation: {
       // Navbar
       "nav_about": "O MNĚ",
@@ -19,7 +19,7 @@ const resources = {
       "header_spec_label": "OBLAST_SPECIALIZACE",
       "header_spec_value": "Vývoj webů",
       "header_study_label": "FÁZE_STUDIA",
-      "header_study_value": "2. ročník VŠ",
+      "header_study_value": "3. ročník VŠ",
       // Hero Section
       "hero_overline": "PROFIL_UŽIVATELE",
       "hero_name": "TOMÁŠ TERČ",
@@ -47,7 +47,11 @@ const resources = {
       "projects_overline": "PRÁCE_NA_PROJEKTECH",
       "projects_title": "PROJEKTY",
       "projects_view_btn": "PROHLÉDNOUT SI PROJEKT",
-      "project_discit_desc": "Co je discgolf? Tato otázka by se mohla zajímat mnoho z vás a na této stránce se dozvíte vše, co o tomto krásném sportu potřebujete vědět. Ti, kteří discgolf již znají, si také přijdou na své s aplikacemi pro hraní.",
+      "project_zdravpo_desc": "Webová prezentace prodejny zdravotnických potřeb a obuvi v Pardubicích. Přehled sortimentu, poradna, informace pro odborné subjekty a kontakt v čistém a přehledném designu s důrazem na snadnou orientaci.",
+      "project_epoukaz_desc": "Prezentační stránka platformy pro online správu zdravotnických ePoukazů určená výdejnám. Vysvětluje, jak systém funguje, představuje ceník a vede návštěvníky k bezplatnému vyzkoušení.",
+      "project_uchovejlepe_desc": "Produktový web zvlhčujícího polštářku, který chrání tabák před vyschnutím. Výrazný karusel s hlavními benefity produktu doplněný o kontaktní formulář.",
+      "project_restaart_desc": "Web sportovního a relaxačního centra pro celou rodinu v Pardubicích. Výrazná vizuální prezentace, přehled aktuálních akcí a propojení na online rezervační systém.",
+      "project_frontend_note": "Na tomto projektu jsem pracoval pouze na frontendové části webu.",
       // Contact
       "contact_overline": "KONTAKTNÍ_FORMULÁŘ",
       "contact_title": "KONTAKT",
@@ -80,7 +84,7 @@ const resources = {
       "header_spec_label": "SPECIALIZATION",
       "header_spec_value": "Web Development",
       "header_study_label": "STUDY_PHASE",
-      "header_study_value": "2nd year University",
+      "header_study_value": "3rd year University",
       "hero_overline": "USER_PROFILE",
       "hero_name": "TOMÁŠ TERČ",
       "hero_desc_1": "Frontend developer based in the ",
@@ -103,7 +107,11 @@ const resources = {
       "projects_overline": "PROJECT_PORTFOLIO",
       "projects_title": "PROJECTS",
       "projects_view_btn": "VIEW PROJECT",
-      "project_discit_desc": "What is discgolf? This question might interest many of you, and on this page, you will learn everything you need to know about this beautiful sport. Those who already know discgolf will also enjoy the apps for playing.",
+      "project_zdravpo_desc": "Website for a medical supplies and footwear store in Pardubice. Product overview, advice section, information for professional partners and contact details in a clean, easy-to-navigate design.",
+      "project_epoukaz_desc": "Landing page for a platform that lets pharmacies and dispensaries manage medical e-vouchers online. It explains how the system works, presents the pricing and guides visitors to a free trial.",
+      "project_uchovejlepe_desc": "Product website for a humidifying pad that keeps tobacco from drying out. A bold carousel highlighting the main product benefits, complemented by a contact form.",
+      "project_restaart_desc": "Website for a sports and relaxation centre for the whole family in Pardubice. Strong visual presentation, an overview of current events and a link to the online booking system.",
+      "project_frontend_note": "On this project I worked on the frontend part of the website only.",
       "contact_overline": "CONTACT_FORM",
       "contact_title": "CONTACT",
       "contact_email_placeholder": "Email",
@@ -127,8 +135,17 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    fallbackLng: 'cz',
+    fallbackLng: 'cs',
+    supportedLngs: ['cs', 'en'],
+    // Browser reports e.g. "en-US" / "cs-CZ"; only the language part matters.
+    load: 'languageOnly',
+    nonExplicitSupportedLngs: true,
     interpolation: { escapeValue: false }
   });
+
+// Keep <html lang> in sync so screen readers and search engines know the page language.
+i18n.on('languageChanged', (lng) => {
+  document.documentElement.lang = lng;
+});
 
 export default i18n;

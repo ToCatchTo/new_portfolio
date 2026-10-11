@@ -1,5 +1,5 @@
 import { Box, Typography, Button, Stack, Divider } from '@mui/material';
-import { colors } from '../utils/globalVariables';
+import { colors, primaryButtonSx } from '../utils/globalVariables';
 import { useTranslation } from 'react-i18next';
 
 const TECH_STACK = [
@@ -20,13 +20,13 @@ const TechnologiesSmall = () => {
       <Stack direction={{ md: "column", sm: "row", xs: "column" }} useFlexGap spacing={{ sm: 2.5, xs: 1 }} divider={<Divider orientation="vertical" flexItem sx={{ backgroundColor: colors.border, display: { md: 'none', xs: 'unset' } }} />} sx={{ mb: { md: '50px', sm: '30px', xs: '20px' }, display: 'flex', flexDirection: { md: 'column', sm: 'row' }, alignItems: { md: 'flex-start', sm: 'center' }, flexWrap: 'wrap' }}>
         {TECH_STACK.map((tech) => (
           <Box key={tech.name} sx={{ display: 'flex', alignItems: 'center', gap: { md: 2.5, sm: 1, xs: 1.5 } }}>
-            <Box component="img" src={tech.src} sx={{ width: '30px', height: 'auto' }} />
+            <Box component="img" src={tech.src} alt="" aria-hidden="true" width={30} height={30} sx={{ width: '30px', height: 'auto' }} />
             <Typography sx={{ color: colors.text, fontSize: { lg: '20px', md: '18px', xs: '16px' } }}>{tech.name}</Typography>
           </Box>
         ))}
         <Typography sx={{ color: colors.text, fontSize: { lg: '20px', md: '18px' } }}>{t('tech_small_continue_text')}</Typography>
       </Stack>
-      <Button href='#experience' variant="contained" disableRipple sx={{ bgcolor: colors.primary, borderRadius: 0, px: { md: 4, xs: 3 }, py: { md: 1.5, xs: 1.2 }, fontSize: { md: '16px', sm: '14px', xs: '12px' }, width: 'fit-content', '&:hover': { bgcolor: colors.primaryHover } }}>
+      <Button href='#experience' variant="contained" disableRipple sx={primaryButtonSx}>
         {t('tech_small_button')}
       </Button>
     </Box>

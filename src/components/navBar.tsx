@@ -72,7 +72,7 @@ const Navbar = () => {
 
           {/* Brand/Logo */}
           <Box component="a" href="#home" onClick={handleMobileNavClick} sx={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
-            <Box component="img" src='/logo.svg' sx={{ width: '35px', height: '35px' }} />
+            <Box component="img" src='/logo.svg' alt="TT_SYSTEM logo" width={35} height={35} sx={{ width: '35px', height: '35px' }} />
             <Typography variant="h6" sx={{ fontWeight: 'bold', color: colors.textHightlight, fontSize: { md: '25px', sm: '22px' }, display: { lg: 'unset', md: 'none', xs: 'unset' } }}>
               TT_SYSTEM
             </Typography>
@@ -90,10 +90,10 @@ const Navbar = () => {
           {/* CV & Language Switcher */}
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: { lg: '30px', md: '20px' } }}>
             <Stack direction="row" spacing={1} divider={<Divider orientation="vertical" flexItem sx={{ bgcolor: colors.text }} />}>
-              <Button onClick={() => changeLanguage('cz')} disableRipple sx={{ color: i18n.language === 'cz' ? colors.textHightlight : colors.text, fontSize: '16px', fontWeight: 'bold', p: '0', minWidth: '30px', '&:hover': { color: colors.primary, backgroundColor: 'transparent' } }}>
+              <Button onClick={() => changeLanguage('cs')} disableRipple sx={{ color: i18n.language === 'cs' ? colors.textHightlight : colors.text, fontSize: '16px', fontWeight: 'bold', p: '0', minWidth: '30px', '&:hover': { color: colors.primary, backgroundColor: 'transparent' } }}>
                 CZ
               </Button>
-              <Button onClick={() => changeLanguage('en')} disableRipple sx={{ color: i18n.language.startsWith('en') ? colors.textHightlight : colors.text, fontSize: '16px', fontWeight: 'bold', p: '0', minWidth: '30px', '&:hover': { color: colors.primary, backgroundColor: 'transparent' } }}>
+              <Button onClick={() => changeLanguage('en')} disableRipple sx={{ color: i18n.language === 'en' ? colors.textHightlight : colors.text, fontSize: '16px', fontWeight: 'bold', p: '0', minWidth: '30px', '&:hover': { color: colors.primary, backgroundColor: 'transparent' } }}>
                 EN
               </Button>
             </Stack>
@@ -106,6 +106,8 @@ const Navbar = () => {
           <IconButton
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             disableRipple
+            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileMenuOpen}
             sx={{
               display: { xs: 'flex', md: 'none' },
               width: '40px',
@@ -164,10 +166,10 @@ const Navbar = () => {
               <Divider sx={{ width: '50%', bgcolor: colors.border }} />
 
               <Stack direction="row" spacing={3} divider={<Divider orientation="vertical" flexItem sx={{ bgcolor: colors.text }} />}>
-                <Button onClick={() => changeLanguage('cz')} disableRipple sx={{ color: i18n.language === 'cz' ? colors.textHightlight : colors.text, fontSize: '18px', fontWeight: 'bold', p: '0', minWidth: '30px' }}>
+                <Button onClick={() => changeLanguage('cs')} disableRipple sx={{ color: i18n.language === 'cs' ? colors.textHightlight : colors.text, fontSize: '18px', fontWeight: 'bold', p: '0', minWidth: '30px' }}>
                   CZ
                 </Button>
-                <Button onClick={() => changeLanguage('en')} disableRipple sx={{ color: i18n.language.startsWith('en') ? colors.textHightlight : colors.text, fontSize: '18px', fontWeight: 'bold', p: '0', minWidth: '30px' }}>
+                <Button onClick={() => changeLanguage('en')} disableRipple sx={{ color: i18n.language === 'en' ? colors.textHightlight : colors.text, fontSize: '18px', fontWeight: 'bold', p: '0', minWidth: '30px' }}>
                   EN
                 </Button>
               </Stack>

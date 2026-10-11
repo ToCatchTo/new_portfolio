@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { Box, Typography, Button, TextField, Alert, Snackbar } from '@mui/material';
-import { colors } from '../utils/globalVariables';
+import { colors, sectionSpacing, primaryButtonSx } from '../utils/globalVariables';
+import SectionHeading from './sectionHeading';
 import emailjs from '@emailjs/browser';
 import { useTranslation } from 'react-i18next';
 
@@ -38,7 +39,6 @@ const Contact = () => {
 
         setLoading(true);
 
-
         emailjs.sendForm(
             "service_bwo420b",
             "template_ki6mshj",
@@ -59,28 +59,24 @@ const Contact = () => {
     };
 
     return (
-        <Box id="contact" sx={{ border: `1px solid ${colors.border}`, p: { md: '40px', sm: '20px', xs: '15px' }, mt: { md: '150px', sm: '100px', xs: '80px' } }}>
-            <Box sx={{ mb: { md: '40px', sm: '30px', xs: '20px' } }}>
-                <Typography variant="overline" sx={{ color: colors.primary, display: 'block', mb: '8px', fontSize: '12px', letterSpacing: '1px' }}>{'>'} {t('contact_overline')}</Typography>
-                <Typography variant="h2" sx={{ fontWeight: 800, color: colors.white, fontSize: { lg: '64px', md: '54px', sm: '48px', xs: '44px' }, textTransform: 'uppercase', m: 0 }}>{t('contact_title')}</Typography>
-            </Box>
+        <Box id="contact" component="section" sx={{ border: `1px solid ${colors.border}`, p: { md: '40px', sm: '20px', xs: '15px' }, mt: sectionSpacing.mt }}>
+            <SectionHeading overline={t('contact_overline')} title={t('contact_title')} sx={{ mb: { md: '40px', sm: '30px', xs: '20px' } }} />
             <Box component="form" ref={formRef} onSubmit={sendEmail}>
                 <Box sx={{ display: 'flex', gap: { md: '24px', xs: '0px' }, flexDirection: { xs: 'column', md: 'row' } }}>
-                    {/* Důležité: Přidány 'name' atributy, které musí odpovídat tvé šabloně v EmailJS */}
-                    <TextField fullWidth name="user_email" value={emailValue} onChange={(e) => setEmailValue(e.target.value)} placeholder={t('contact_email_placeholder')} variant="outlined" required sx={customStyles} />
-                    <TextField fullWidth name="subject" placeholder={t('contact_subject_placeholder')} variant="outlined" required sx={customStyles} />
+                    {/* 'name' attributes must match the EmailJS template fields */}
+                    <TextField fullWidth name="user_email" type="email" autoComplete="email" inputProps={{ 'aria-label': t('contact_email_placeholder') }} value={emailValue} onChange={(e) => setEmailValue(e.target.value)} placeholder={t('contact_email_placeholder')} variant="outlined" required sx={customStyles} />
+                    <TextField fullWidth name="subject" inputProps={{ 'aria-label': t('contact_subject_placeholder') }} placeholder={t('contact_subject_placeholder')} variant="outlined" required sx={customStyles} />
                 </Box>
-                <TextField fullWidth name="message" multiline rows={10} placeholder={t('contact_message_placeholder')} variant="outlined" required sx={customStyles} />
+                <TextField fullWidth name="message" multiline rows={10} inputProps={{ 'aria-label': t('contact_message_placeholder') }} placeholder={t('contact_message_placeholder')} variant="outlined" required sx={customStyles} />
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: { md: '16px', xs: '8px' }, flexDirection: { xs: 'column', md: 'row' }, gap: '24px' }}>
                     <Typography sx={{ color: colors.text, fontSize: '14px', lineHeight: '1.6', textAlign: { md: 'left', xs: 'center' } }}>
                         {t('contact_gdpr_text')} <Box component="span" sx={{ color: colors.primary, cursor: 'pointer', borderBottom: `1px solid ${colors.primary}` }}>{t('contact_more_info')}</Box>
                     </Typography>
-                    <Button type="submit" disabled={loading} variant="contained" disableRipple sx={{ bgcolor: colors.primary, color: colors.white, borderRadius: 0, px: { md: 4, xs: 3.5 }, py: { md: 1.5, xs: 1.3 }, fontSize: { md: '16px', sm: '14px', xs: '12px' }, fontWeight: 800, '&:hover': { bgcolor: colors.primaryHover }, '&:disabled': { bgcolor: 'grey.700' } }}>
+                    <Button type="submit" disabled={loading} variant="contained" disableRipple sx={[primaryButtonSx, { px: { md: 4, xs: 3.5 }, py: { md: 1.5, xs: 1.3 }, fontWeight: 800, '&:disabled': { bgcolor: 'grey.700' } }]}>
                         {loading ? t('contact_sending') : t('contact_send')}
                     </Button>
                 </Box>
             </Box>
-            {/* Snackbar pro potvrzení odeslání */}
             <Snackbar open={!!status} autoHideDuration={6000} onClose={() => setStatus(null)}>
                 <Alert onClose={() => setStatus(null)} severity={status?.type} sx={{ width: '100%', borderRadius: 0 }}>
                     {status?.msg}

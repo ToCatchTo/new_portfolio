@@ -40,8 +40,7 @@ const theme = createTheme({
 
 export default function App() {
   return (
-    <>
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
         <CssBaseline />
         <Box sx={{ padding: { sm: '30px', xs: '10px' } }}>
           <NavBar />
@@ -53,7 +52,6 @@ export default function App() {
           <Footer />
           <Analytics />
         </Box>
-      </ThemeProvider>
-    </>
+    </ThemeProvider>
   );
 }
